@@ -137,20 +137,20 @@ We will use the following graph structure as an example for each of the followin
  *                       1 /    \ 1
  *                        /      \
  *                       \/      \/
- *                    SLC-W13   SLC-W10
+ *                      foo      bar
  *                      ||        ||
  *                       \        /
  *                      2 \      / 2
  *                         \    /
  *                         \/  \/
- *                       AromaLIGHT
+ *                           baz
  */
  var graph = new Graph();
 
-graph.addEdge('head', 'SLC-W13', { weight: 1 });
-graph.addEdge('head', 'SLC-W10', { weight: 1 });
-graph.addEdge('SLC-W13', 'AromaLIGHT', { weight: 2 });
-graph.addEdge('SLC-W10', 'AromaLIGHT', { weight: 2 });
+graph.addEdge('head', 'foo', { weight: 1 });
+graph.addEdge('head', 'bar', { weight: 1 });
+graph.addEdge('foo', 'baz', { weight: 2 });
+graph.addEdge('bar', 'baz', { weight: 2 });
 ```
 
 #### Depth-First Visitor
@@ -173,7 +173,7 @@ Graph.Visitor.DFS(graph, 'head', function (node) {
 });
 ```
 
-If we print the sequence of nodes forwarded by the visitor using our example, it will result in `['SLC-W13', 'AromaLIGHT', 'SLC-W10']`.
+If we print the sequence of nodes forwarded by the visitor using our example, it will result in `['foo', 'baz', 'bar']`.
 
 #### Breadth-First Visitor
 
@@ -195,7 +195,7 @@ Graph.Visitor.BFS(graph, 'head', function (array_of_nodes, depth) {
 });
 ```
 
-If we print the sequence of nodes forwarded by the visitor using our example, it will result in `[['head'], ['SLC-W13', 'SLC-W10'], ['AromaLIGHT']];`.
+If we print the sequence of nodes forwarded by the visitor using our example, it will result in `[['head'], ['foo', 'bar'], ['baz']];`.
 
 ### Route management
 
@@ -220,10 +220,10 @@ var routes = graph.routes({ from: 'head' });
 ```
 The available route paths returned by the previous call can be represented as :
 
-- head -> SLCW-13 **(1)**
-- head -> SLCW-13 -> AromaLIGHT **(3)**
-- head -> SLCW-10 **(1)**
-- head -> SLCW-10 -> AromaLIGHT **(3)**
+- head -> foo **(1)**
+- head -> foo -> baz **(3)**
+- head -> bar **(1)**
+- head -> bar -> baz **(3)**
 
 **Note :** The numbers in parentheses are the weights associated with each routes.
 
@@ -232,12 +232,12 @@ The available route paths returned by the previous call can be represented as :
 To compute all the routes, whatever their weights, between two given nodes you can use the following :
 
 ```javascript
-var routes = graph.routes({ from: 'head', to: 'AromaLIGHT' });
+var routes = graph.routes({ from: 'head', to: 'baz' });
 ```
 The available route paths returned by the previous call can be represented as :
 
-- head -> SLCW-13 -> AromaLIGHT **(3)**
-- head -> SLCW-10 -> AromaLIGHT **(3)**
+- head -> foo -> baz **(3)**
+- head -> bar -> baz **(3)**
 
 ##### Using advanced queries
 
@@ -246,7 +246,7 @@ You can specify additional query clauses to the `Graph.routes` API to filter you
 ```javascript
 var routes = graph.routes({
   from: 'head',
-  to: 'AromaLIGHT',
+  to: 'baz',
   where: {
     length: 3
   }
@@ -254,8 +254,8 @@ var routes = graph.routes({
 ```
 The available route paths returned by the previous call can be represented as :
 
-- head -> SLCW-13 -> AromaLIGHT **(3)**
-- head -> SLCW-10 -> AromaLIGHT **(3)**
+- head -> foo -> baz **(3)**
+- head -> bar -> baz **(3)**
 
 #### The `Graph.hasRoute` API
 
@@ -282,7 +282,7 @@ This method is a helper that will let you map an array of nodes identifiers to a
 Example :
 
 ```javascript
-var route = graph.findRoute(['head', 'SLCW-13', 'AromaLIGHT']);
+var route = graph.findRoute(['head', 'foo', 'baz']);
 ```
 
 ### Events
