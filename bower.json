@@ -1,0 +1,31 @@
+{
+  "name": "graph",
+  "version": "1.0.1",
+  "main": "graph.js",
+  "authors": [
+    "Halim Qarroum <hqm.post@gmail.com>"
+  ],
+  "description": "An implementation of a directed graph.",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "graph",
+    "directed"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "eventemitter2": "~0.4.14"
+  },
+  "devDependencies": {
+    "requirejs": "~2.1.16",
+    "jasmine": "~2.2.1"
+  }
+}
