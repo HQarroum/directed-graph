@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ![Logo](http://journyx.com/sites/default/files/imgs/images/directed%20graph.png)
 
 ## Graph
@@ -346,6 +345,4 @@ grunt
 npm test
 ```
 =======
-# Graph
-An implementation of a directed graph.
->>>>>>> origin/master
+
