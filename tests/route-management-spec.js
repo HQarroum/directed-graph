@@ -41,7 +41,7 @@ define(['underscore', 'graph'], function (_, Graph) {
             graph.addEdge('head', 'foo', { weight: 1 });
             graph.addEdge('head', 'bar', { weight: 1 });
             graph.addEdge('foo', 'baz', { weight: 2 });
-            graph.addEdge('var', 'baz', { weight: 2 });
+            graph.addEdge('bar', 'baz', { weight: 2 });
         });
 
         it('should be able to return all the routes having a node `n` as the head', function () {
