@@ -27,37 +27,37 @@ define(['underscore', 'graph'], function (_, Graph) {
          * Building the graph using a predefined path :
          *
          *                          Head
-         *                             ||
-         *                            /  \
-         *                           \/  \/
-         *                SLC-W13    SLC-W10
-         *                      ||               ||
-         *                       \               /
-         *                         \            /
-         *                         \/          \/
-         *                        AromaLIGHT
+         *                           ||
+         *                          /  \
+         *                         \/  \/
+         *                        foo  bar
+         *                        ||   ||
+         *                         \   /
+         *                          \  /
+         *                          \/\/
+         *                           baz
          */
         beforeEach(function () {
-            graph.addEdge('head', 'SLC-W13', { weight: 1 });
-            graph.addEdge('head', 'SLC-W10', { weight: 1 });
-            graph.addEdge('SLC-W13', 'AromaLIGHT', { weight: 2 });
-            graph.addEdge('SLC-W10', 'AromaLIGHT', { weight: 2 });
+            graph.addEdge('head', 'foo', { weight: 1 });
+            graph.addEdge('head', 'bar', { weight: 1 });
+            graph.addEdge('foo', 'baz', { weight: 2 });
+            graph.addEdge('var', 'baz', { weight: 2 });
         });
 
         it('should be able to return all the routes having a node `n` as the head', function () {
             var result_head = [
-                { path: ['head', 'SLC-W13'], weight: 1 },
-                { path: ['head', 'SLC-W13', 'AromaLIGHT'], weight: 3 },
-                { path: ['head', 'SLC-W10'], weight: 1 },
-                { path: ['head', 'SLC-W10', 'AromaLIGHT'], weight: 3 }
+                { path: ['head', 'foo'], weight: 1 },
+                { path: ['head', 'foo', 'baz'], weight: 3 },
+                { path: ['head', 'bar'], weight: 1 },
+                { path: ['head', 'bar', 'baz'], weight: 3 }
             ];
 
             var result_slcw13 = [
-                { path: ['SLC-W13', 'AromaLIGHT'], weight: 2 }
+                { path: ['foo', 'baz'], weight: 2 }
             ];
 
             var output_head = routesToArray(graph.routes({ from: 'head' }));
-            var output_slcw13 = routesToArray(graph.routes({ from: 'SLC-W13' }));
+            var output_slcw13 = routesToArray(graph.routes({ from: 'foo' }));
 
             expect(JSON.stringify(result_head)).toEqual(JSON.stringify(output_head));
             expect(JSON.stringify(result_slcw13)).toEqual(JSON.stringify(output_slcw13));
@@ -65,8 +65,8 @@ define(['underscore', 'graph'], function (_, Graph) {
 
         it('should be able to return all the routes having a node `n` as the head using additional query parameters', function () {
             var result = [
-                { path: ['head', 'SLC-W13', 'AromaLIGHT'], weight: 3 },
-                { path: ['head', 'SLC-W10', 'AromaLIGHT'], weight: 3 }
+                { path: ['head', 'foo', 'baz'], weight: 3 },
+                { path: ['head', 'bar', 'baz'], weight: 3 }
             ];
 
             var output = routesToArray(graph.routes({
@@ -80,20 +80,20 @@ define(['underscore', 'graph'], function (_, Graph) {
         });
 
         it('should be able to find a route given an array of node identifiers', function () {
-            // Searching for the route head->SLC-W13->AromaLIGHT
-            var route = graph.findRoute(['head', 'SLC-W13', 'AromaLIGHT']);
+            // Searching for the route head->foo->baz
+            var route = graph.findRoute(['head', 'foo', 'baz']);
             expect(route).not.toBeUndefined();
             expect(route.weight).toEqual(3);
             expect(route.path.length).toEqual(3);
 
-            // Searching for the route SLC-W13->AromaLIGHT
-            route = graph.findRoute(['SLC-W13', 'AromaLIGHT']);
+            // Searching for the route foo->baz
+            route = graph.findRoute(['foo', 'baz']);
             expect(route).not.toBeUndefined();
             expect(route.weight).toEqual(2);
             expect(route.path.length).toEqual(2);
 
             // Searching for an invalid route
-            route = graph.findRoute(['AromaLIGHT']);
+            route = graph.findRoute(['baz']);
             expect(route).toBeUndefined();
         });
 
