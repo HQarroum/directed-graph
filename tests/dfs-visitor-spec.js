@@ -14,22 +14,22 @@ define(['underscore', 'graph'], function (_, Graph) {
          *                             ||
          *                            /  \
          *                           \/  \/
-         *                SLC-W13    SLC-W10
-         *                      ||               ||
-         *                       \               /
-         *                         \            /
-         *                         \/          \/
-         *                        AromaLIGHT
+         *                         foo   bar
+         *                          ||   ||
+         *                           \   /
+         *                            \ /
+         *                            \/ 
+         *                            baz
          */
         beforeEach(function () {
-            graph.addEdge('head', 'SLC-W13');
-            graph.addEdge('head', 'SLC-W10');
-            graph.addEdge('SLC-W13', 'AromaLIGHT');
-            graph.addEdge('SLC-W10', 'AromaLIGHT');
+            graph.addEdge('head', 'foo');
+            graph.addEdge('head', 'bar');
+            graph.addEdge('foo', 'baz');
+            graph.addEdge('bar', 'baz');
         });
 
         it('should be able to iterate over the nodes in the graph', function () {
-            var result = ['SLC-W13', 'AromaLIGHT', 'SLC-W10'];
+            var result = ['foo', 'baz', 'bar'];
             var nodes = [];
 
             Graph.Visitor.DFS(graph, 'head', function (node) {
@@ -48,8 +48,8 @@ define(['underscore', 'graph'], function (_, Graph) {
         it('should not return any node if the head node does not have any adjacents nodes', function () {
             var nodes = [];
 
-            graph.removeEdge('head', 'SLC-W13');
-            graph.removeEdge('head', 'SLC-W10');
+            graph.removeEdge('head', 'foo');
+            graph.removeEdge('head', 'bar');
             Graph.Visitor.DFS(graph, 'head', function (node) {
                 nodes.push(node.id);
             });
