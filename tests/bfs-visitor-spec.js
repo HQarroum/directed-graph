@@ -14,22 +14,22 @@ define(['underscore', 'graph'], function (_, Graph) {
          *                             ||
          *                            /  \
          *                           \/  \/
-         *                SLC-W13    SLC-W10
-         *                      ||               ||
-         *                       \               /
-         *                         \            /
-         *                         \/          \/
-         *                        AromaLIGHT
+         *                         foo   bar
+         *                          ||   ||
+         *                           \   /
+         *                            \ /
+         *                            \/ 
+         *                            baz
          */
         beforeEach(function () {
-            graph.addEdge('head', 'SLC-W13');
-            graph.addEdge('head', 'SLC-W10');
-            graph.addEdge('SLC-W13', 'AromaLIGHT');
-            graph.addEdge('SLC-W10', 'AromaLIGHT');
+            graph.addEdge('head', 'foo');
+            graph.addEdge('head', 'bar');
+            graph.addEdge('foo', 'baz');
+            graph.addEdge('bar', 'baz');
         });
 
         it('should be able to iterate over the nodes in the graph', function () {
-            var result = [['head'], ['SLC-W13', 'SLC-W10'], ['AromaLIGHT']];
+            var result = [['head'], ['foo', 'bar'], ['baz']];
             var nodes = [];
             var saved_level;
 
@@ -55,8 +55,8 @@ define(['underscore', 'graph'], function (_, Graph) {
             var result = [['head']];
             var nodes = [];
 
-            graph.removeEdge('head', 'SLC-W13');
-            graph.removeEdge('head', 'SLC-W10');
+            graph.removeEdge('head', 'foo');
+            graph.removeEdge('head', 'bar');
             Graph.Visitor.BFS(graph, 'head', function (array, level) {
                 var map = _.map(array, function (element) {
                     return element.id;
