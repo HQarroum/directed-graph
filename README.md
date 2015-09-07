@@ -1,6 +1,7 @@
 ![Logo](http://journyx.com/sites/default/files/imgs/images/directed%20graph.png)
 
-## Graph [![Build Status](https://travis-ci.org/HQarroum/Graph.svg?branch=master)](https://travis-ci.org/HQarroum/Graph)
+## Graph
+[![Build Status](https://travis-ci.org/HQarroum/Graph.svg?branch=master)](https://travis-ci.org/HQarroum/Graph)
 
 An implementation of a simple directed graph.
 
