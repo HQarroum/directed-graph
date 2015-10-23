@@ -9,48 +9,6 @@ Current version: **1.0.1**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
-## Building
-
-This project uses `Grunt` as its build management system and `Bower` as its dependency management system.
-
-Grunt uses the `Gruntfile.js` to know how to build the project, and will as a *default* task build the project
-and copy the binaries in the `dist/` folder.
-
-Grunt relies on `Node.js` and `NPM` to execute tasks, so you will need to ensure they are available on your build machine.
-
-To install Grunt, its modules, and fetch the Bower dependencies of the project you will need to run the following command :
-
-```bash
-# This will install Grunt tasks and fetch the
-# required Bower module as a postinstall task.
-npm install
-```
-
-To run a build using the default task, simply run the following command :
-
-```bash
-grunt
-```
-
-### Deployment
-
-You can use Grunt to deploy this project in two ways :
-
- - Push the built binaries to the `release` branch associated with the Git repository of this project
- - Run the previous task, and additionally, tag the binaries with the project's `package.json` version
- 
-To deploy the project in a continuous integration system, or simply using your development machine, you can use one, or both of the following commands :
-
-```bash
-# This will build the project and push the binaries to
-# the `release` branch.
-grunt release
-
-# This will do the same as the previous command, but will
-# also tag the binaries on the remote Git origin.
-grunt tag
-```
-
 ## Usage
 
 Basic operations you can perform on the graph are insertion and removal of nodes and edges.
@@ -329,6 +287,47 @@ graph.on('edge.removed', receiver.onEdgeRemoved);
 graph.addEdge('foo', 'bar');
 // Removing all nodes and edges.
 graph.clear();
+```
+## Building
+
+This project uses `Grunt` as its build management system and `Bower` as its dependency management system.
+
+Grunt uses the `Gruntfile.js` to know how to build the project, and will as a *default* task build the project
+and copy the binaries in the `dist/` folder.
+
+Grunt relies on `Node.js` and `NPM` to execute tasks, so you will need to ensure they are available on your build machine.
+
+To install Grunt, its modules, and fetch the Bower dependencies of the project you will need to run the following command :
+
+```bash
+# This will install Grunt tasks and fetch the
+# required Bower module as a postinstall task.
+npm install
+```
+
+To run a build using the default task, simply run the following command :
+
+```bash
+grunt
+```
+
+### Deployment
+
+You can use Grunt to deploy this project in two ways :
+
+ - Push the built binaries to the `release` branch associated with the Git repository of this project
+ - Run the previous task, and additionally, tag the binaries with the project's `package.json` version
+ 
+To deploy the project in a continuous integration system, or simply using your development machine, you can use one, or both of the following commands :
+
+```bash
+# This will build the project and push the binaries to
+# the `release` branch.
+grunt release
+
+# This will do the same as the previous command, but will
+# also tag the binaries on the remote Git origin.
+grunt tag
 ```
 
 ## Tests
