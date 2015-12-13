@@ -57,7 +57,7 @@ define(['underscore', 'graph'], function (_, Graph) {
 
             graph.removeEdge('head', 'foo');
             graph.removeEdge('head', 'bar');
-            Graph.Visitor.BFS(graph, 'head', function (array, level) {
+            Graph.Visitor.BFS(graph, 'head', function (array) {
                 var map = _.map(array, function (element) {
                     return element.id;
                 });
