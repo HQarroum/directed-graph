@@ -382,7 +382,7 @@
 
     // Removing the edge from the edge list maintained
     // by each nodes of the graph.
-    _.each(this.nodes, function (node, key) {
+    _.each(this.nodes, function (node) {
       node.edges = _.reject(node.edges, function (edge) {
         return edge.target.id === target_node.id
           && edge.source.id === source_node.id;
