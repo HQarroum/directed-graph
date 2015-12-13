@@ -45,7 +45,7 @@
     }
  })('Graph', function (_, Emitter) {
 
-  var Graph = function (graph) {
+  var Graph = function () {
       Emitter.apply(this);
       this.nodes = {};
       this.edges = [];
