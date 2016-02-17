@@ -8,8 +8,7 @@
     "url": "git@github.com:HQarroum/Graph.git"
   },
   "scripts": {
-    "test": "grunt test",
-    "postinstall": "node_modules/bower/bin/bower install"
+    "test": "grunt test"
   },
   "keywords": [
     "graph"
