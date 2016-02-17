@@ -1,5 +1,5 @@
 {
-  "name": "graph",
+  "name": "digraphe",
   "version": "1.0.1",
   "description": "An implementation of a directed graph.",
   "main": "graph.js",
