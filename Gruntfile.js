@@ -57,33 +57,10 @@ module.exports = function (grunt) {
 		    { expand: true, src: ['./*.json'], dest: 'dist/' }
 		]
 	    }
-	},
-	buildcontrol: {
-	    options: {
-		dir: 'dist',
-		commit: true,
-		push: true,
-		message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-	    },
-	    release: {
-		options: {
-		    remote: pkg.repository.url,
-		    branch: 'release'
-		}
-	    },
-	    tag: {
-		options: {
-		    remote: pkg.repository.url,
-		    branch: 'release',
-		    tag: pkg.version
-		}
-	    }
 	}
     });
     
     // Registering the tasks.
     grunt.registerTask('test', ['jasmine']);
     grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test']);
-    grunt.registerTask('release', ['default', 'copy', 'buildcontrol:release']);
-    grunt.registerTask('tag', ['release', 'buildcontrol:tag']);
 };
