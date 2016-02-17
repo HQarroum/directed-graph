@@ -7,6 +7,7 @@
     "type": "git",
     "url": "git@github.com:HQarroum/Graph.git"
   },
+  "license": "MIT",
   "scripts": {
     "test": "grunt test"
   },
