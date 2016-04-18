@@ -9,6 +9,20 @@ Current version: **1.0.1**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
+## Install
+
+##### Using NPM
+
+```bash
+npm install --save digraphe
+```
+
+##### Using Bower
+
+```bash
+bower install --save digraphe
+```
+
 ## Usage
 
 Basic operations you can perform on the graph are insertion and removal of nodes and edges.
