@@ -191,6 +191,12 @@
           var edge = s.edges[i];
           var node = edge.target;
 
+          // If the node is already in the stack and we've
+          // already visited it, we skip it to avoid cyclic
+          // loops.
+          if (_.findWhere(stack, {'id': node.id})) {
+          	continue;
+          }
           stack.push(node);
           weight += edge.weight;
           if (callback) callback(node, stack, weight);
