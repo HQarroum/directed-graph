@@ -1,4 +1,6 @@
-![Logo](https://qph.ec.quoracdn.net/main-qimg-d575a41ce0ca5f8e07d417e3e733a310?convert_to_webp=true)
+<p>
+ <img width="400" src="https://qph.ec.quoracdn.net/main-qimg-d575a41ce0ca5f8e07d417e3e733a310?convert_to_webp=true" />
+</p>
 
 ## Graph
 [![Build Status](https://travis-ci.org/HQarroum/directed-graph.svg?branch=master)](https://travis-ci.org/HQarroum/directed-graph)
