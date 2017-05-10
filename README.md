@@ -304,6 +304,7 @@ graph.addEdge('foo', 'bar');
 // Removing all nodes and edges.
 graph.clear();
 ```
+
 ## Building
 
 This project uses `Grunt` as its build management system and `Bower` as its dependency management system.
@@ -341,5 +342,3 @@ grunt
 # Using NPM
 npm test
 ```
-=======
-
