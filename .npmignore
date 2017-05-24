@@ -1,0 +1,8 @@
+# Build artifacts
+libs/
+
+# Dependencies
+node_modules/
+
+# JUnit report files
+reports/
