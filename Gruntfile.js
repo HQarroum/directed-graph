@@ -1,11 +1,11 @@
 module.exports = function (grunt) {
-    
+
     // Loading the project package description.
     var pkg = grunt.file.readJSON('package.json');
-    
+
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
-    
+
     // Timing the build tasks.
     require('time-grunt')(grunt);
 
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 	uglify: {
 	    dist: {
 		src: 'graph.js',
-		dest: 'dist/graph.js'
+		dest: 'dist/graph.min.js'
 	    }
 	},
 	jasmine: {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
 	    }
 	}
     });
-    
+
     // Registering the tasks.
     grunt.registerTask('test', ['jasmine']);
     grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test']);
