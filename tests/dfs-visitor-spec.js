@@ -1,4 +1,4 @@
-define(['underscore', 'graph'], function (_, Graph) {
+define(['lodash', 'graph'], function (_, Graph) {
 
     /**
      *  DFS test plan.
@@ -10,16 +10,16 @@ define(['underscore', 'graph'], function (_, Graph) {
         /**
          * Building the graph using a predefined path :
          *
-         *                          Head
+         *                            Head
          *                             ||
          *                            /  \
          *                           \/  \/
-         *                         foo   bar
+         *                          foo  bar
          *                          ||   ||
          *                           \   /
          *                            \ /
-         *                            \/ 
-         *                            baz
+         *                            \/
+         *                           baz
          */
         beforeEach(function () {
             graph.addEdge('head', 'foo');

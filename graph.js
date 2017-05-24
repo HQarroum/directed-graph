@@ -1,13 +1,13 @@
 /**
- *       _____                 _     
- *      / ____|               | |    
- *     | |  __ _ __ __ _ _ __ | |__  
- *     | | |_ | '__/ _` | '_ \| '_ \ 
+ *       _____                 _
+ *      / ____|               | |
+ *     | |  __ _ __ __ _ _ __ | |__
+ *     | | |_ | '__/ _` | '_ \| '_ \
  *     | |__| | | | (_| | |_) | | | |
  *      \_____|_|  \__,_| .__/|_| |_|
- *                      | |          
- *                      |_|          
- *                        
+ *                      | |
+ *                      |_|
+ *
  *
  *
  * This is an implementation of a directed
@@ -21,11 +21,11 @@
  (function (name, definition) {
     if (typeof define === 'function' && define.amd) {
         // Defining the module in an AMD fashion.
-        define(['underscore', 'event-emitter'], definition);
+        define(['lodash', 'event-emitter'], definition);
     } else if (typeof module !== 'undefined' && module.exports) {
         // Exporting the module for Node.js/io.js.
         var EventEmitter = require('events').EventEmitter;
-        module.exports   = definition(require('underscore'), EventEmitter);
+        module.exports   = definition(require('lodash'), EventEmitter);
     } else {
         var gl       = this;
         var instance = definition(gl._, gl.EventEmitter2);
@@ -194,7 +194,7 @@
           // If the node is already in the stack and we've
           // already visited it, we skip it to avoid cyclic
           // loops.
-          if (_.findWhere(stack, {'id': node.id})) {
+          if (_.find(stack, {'id': node.id})) {
           	continue;
           }
           stack.push(node);
@@ -359,7 +359,7 @@
       if (source === id || target === id) {
         this.removeEdge(source, target);
       }
-    }, this);
+    }.bind(this));
 
     delete this.nodes[id];
     this.emit('node.removed', id);

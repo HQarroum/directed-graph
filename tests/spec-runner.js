@@ -4,7 +4,7 @@
   require.config({
     baseUrl: '../',
     paths: {
-      'underscore': 'libs/underscore/underscore',
+      'lodash': 'libs/lodash/dist/lodash.min',
       'event-emitter': 'libs/eventemitter2/lib/eventemitter2',
       'jasmine': 'libs/jasmine/lib/jasmine-core/jasmine',
       'jasmine-html': 'libs/jasmine/lib/jasmine-core/jasmine-html',

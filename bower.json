@@ -1,6 +1,6 @@
 {
   "name": "digraphe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "graph.js",
   "scripts": {
     "test": "grunt test",
@@ -26,8 +26,8 @@
     "tests"
   ],
   "dependencies": {
-    "underscore": "~1.8.3",
-    "eventemitter2": "^4.1.0"
+    "eventemitter2": "^4.1.0",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "requirejs": "~2.1.16",

@@ -1,11 +1,12 @@
 {
   "name": "digraphe",
-  "version": "1.0.2",
-  "description": "An implementation of a directed graph.",
+  "version": "1.0.3",
+  "description": "An cross-platform implementation of a directed graph.",
   "main": "graph.js",
+  "author": "Halim Qarroum <hqm.post@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:HQarroum/Graph.git"
+    "url": "git@github.com:HQarroum/directed-graph.git"
   },
   "license": "MIT",
   "scripts": {
@@ -14,9 +15,9 @@
     "prepublish": "npm run build"
   },
   "keywords": [
-    "graph"
+    "graph",
+    "directed"
   ],
-  "author": "Halim Qarroum",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -29,6 +30,6 @@
     "time-grunt": "^1.2.1"
   },
   "dependencies": {
-    "underscore": "^1.8.3"
+    "lodash": "^4.17.4"
   }
 }

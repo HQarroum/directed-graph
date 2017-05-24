@@ -1,4 +1,4 @@
-define(['underscore', 'graph'], function (_, Graph) {
+define(['lodash', 'graph'], function (_, Graph) {
 
     /**
      *  BFS test plan.
@@ -18,7 +18,7 @@ define(['underscore', 'graph'], function (_, Graph) {
          *                          ||   ||
          *                           \   /
          *                            \ /
-         *                            \/ 
+         *                            \/
          *                            baz
          */
         beforeEach(function () {

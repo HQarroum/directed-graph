@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 			requireConfig: {
 			    buildPath: '../',
 			    paths: {
-				'underscore': 'libs/underscore/underscore',
+				'lodash': 'libs/lodash/dist/lodash.min',
 				'event-emitter': 'libs/eventemitter2/lib/eventemitter2'
 			    }
 			}

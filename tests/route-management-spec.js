@@ -1,4 +1,4 @@
-define(['underscore', 'graph'], function (_, Graph) {
+define(['lodash', 'graph'], function (_, Graph) {
 
     /**
      *  Route management test plan.
