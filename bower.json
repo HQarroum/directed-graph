@@ -1,6 +1,6 @@
 {
   "name": "digraphe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "graph.js",
   "authors": [
     "Halim Qarroum <hqm.post@gmail.com>"
