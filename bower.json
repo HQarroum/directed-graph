@@ -2,6 +2,11 @@
   "name": "digraphe",
   "version": "1.0.2",
   "main": "graph.js",
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt",
+    "postinstall": "grunt"
+  },
   "authors": [
     "Halim Qarroum <hqm.post@gmail.com>"
   ],
