@@ -10,16 +10,16 @@ define(['lodash', 'graph'], function (_, Graph) {
         /**
          * Building the graph using a predefined path :
          *
-         *                            Head
-         *                             ||
-         *                            /  \
-         *                           \/  \/
-         *                          foo  bar
-         *                          ||   ||
-         *                          \    /
-         *                          \   /
-         *                           \/
-         *                          baz
+         *                             Head
+         *                              ||
+         *                            /   \
+         *                           \/   \/
+         *                          foo   bar
+         *                          ||    ||
+         *                           \    /
+         *                           \   /
+         *                            \/
+         *                           baz
          */
         beforeEach(function () {
             graph.addEdge('head', 'foo');

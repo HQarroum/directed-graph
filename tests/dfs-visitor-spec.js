@@ -10,14 +10,14 @@ define(['lodash', 'graph'], function (_, Graph) {
         /**
          * Building the graph using a predefined path :
          *
-         *                            Head
-         *                             ||
-         *                            /  \
-         *                           \/  \/
-         *                          foo  bar
-         *                          ||   ||
+         *                             Head
+         *                              ||
+         *                            /   \
+         *                           \/   \/
+         *                          foo   bar
+         *                          ||    ||
+         *                           \    /
          *                           \   /
-         *                            \ /
          *                            \/
          *                           baz
          */
