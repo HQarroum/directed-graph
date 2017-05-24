@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "underscore": "~1.8.3",
-    "eventemitter2": "~0.4.14"
+    "eventemitter2": "^4.1.0"
   },
   "devDependencies": {
     "requirejs": "~2.1.16",
