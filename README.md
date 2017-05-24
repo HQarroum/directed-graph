@@ -7,7 +7,7 @@
 
 An implementation of a simple directed graph.
 
-Current version: **1.0.1**
+Current version: **1.0.2**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
@@ -272,7 +272,7 @@ You can listen to four events on the graph :
  - `node.removed` is emited when a node has been removed
  - `edge.added` is emitted after the insertion of a new edge
  - `edge.removed` is emitted after the removal of an edge
- 
+
 Example :
 
 ```javascript
