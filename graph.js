@@ -285,15 +285,9 @@
       return;
     }
     _.each(routes, function (route) {
-      // Mapping the route's path to an array
-      // of node identifiers.
-      var map = _.map(route.path, function (node) {
-        return node.id;
-      });
-
-      if (map.toString() === ids.toString()) {
+      if (_.map(route.path, 'id').toString() === ids.toString()) {
         found_route = route;
-        return false;
+        return (false);
       }
     });
     return found_route;

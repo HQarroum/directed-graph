@@ -15,9 +15,7 @@ define(['lodash', 'graph'], function (_, Graph) {
             var input = [];
 
             _.each(routes, function (route) {
-                var map = _.map(route.path, function (node) {
-                    return node.id;
-                });
+                var map = _.map(route.path, 'id');
                 input.push({ path: map, weight: route.weight });
             });
             return input;
@@ -26,15 +24,15 @@ define(['lodash', 'graph'], function (_, Graph) {
         /**
          * Building the graph using a predefined path :
          *
-         *                          Head
-         *                           ||
-         *                          /  \
-         *                         \/  \/
-         *                        foo  bar
-         *                        ||   ||
-         *                         \   /
-         *                          \  /
-         *                          \/\/
+         *                             Head
+         *                              ||
+         *                            /   \
+         *                           \/   \/
+         *                          foo   bar
+         *                          ||    ||
+         *                           \    /
+         *                           \   /
+         *                            \/
          *                           baz
          */
         beforeEach(function () {
@@ -52,15 +50,15 @@ define(['lodash', 'graph'], function (_, Graph) {
                 { path: ['head', 'bar', 'baz'], weight: 3 }
             ];
 
-            var result_slcw13 = [
+            var result_foo = [
                 { path: ['foo', 'baz'], weight: 2 }
             ];
 
             var output_head = routesToArray(graph.routes({ from: 'head' }));
-            var output_slcw13 = routesToArray(graph.routes({ from: 'foo' }));
+            var output_foo  = routesToArray(graph.routes({ from: 'foo' }));
 
             expect(JSON.stringify(result_head)).toEqual(JSON.stringify(output_head));
-            expect(JSON.stringify(result_slcw13)).toEqual(JSON.stringify(output_slcw13));
+            expect(JSON.stringify(result_foo)).toEqual(JSON.stringify(output_foo));
         });
 
         it('should be able to return all the routes having a node `n` as the head using additional query parameters', function () {

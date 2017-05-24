@@ -10,16 +10,16 @@ define(['lodash', 'graph'], function (_, Graph) {
         /**
          * Building the graph using a predefined path :
          *
-         *                          Head
-         *                             ||
-         *                            /  \
-         *                           \/  \/
-         *                         foo   bar
-         *                          ||   ||
+         *                             Head
+         *                              ||
+         *                            /   \
+         *                           \/   \/
+         *                          foo   bar
+         *                          ||    ||
+         *                           \    /
          *                           \   /
-         *                            \ /
          *                            \/
-         *                            baz
+         *                           baz
          */
         beforeEach(function () {
             graph.addEdge('head', 'foo');
@@ -34,10 +34,7 @@ define(['lodash', 'graph'], function (_, Graph) {
             var saved_level;
 
             Graph.Visitor.BFS(graph, 'head', function (array, level) {
-                var map = _.map(array, function (element) {
-                    return element.id;
-                });
-                nodes.push(map);
+                nodes.push(_.map(array, 'id'));
                 saved_level = level;
             });
             expect(JSON.stringify(nodes)).toEqual(JSON.stringify(result));
@@ -58,10 +55,7 @@ define(['lodash', 'graph'], function (_, Graph) {
             graph.removeEdge('head', 'foo');
             graph.removeEdge('head', 'bar');
             Graph.Visitor.BFS(graph, 'head', function (array) {
-                var map = _.map(array, function (element) {
-                    return element.id;
-                });
-                nodes.push(map);
+                nodes.push(_.map(array, 'id'));
             });
             expect(JSON.stringify(nodes)).toEqual(JSON.stringify(result));
         });
