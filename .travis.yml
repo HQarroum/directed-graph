@@ -15,5 +15,6 @@ deploy:
   file_glob: true
   file: 1.0.4.zip
   skip_cleanup: true
+  target_branch: master
   on:
     tags: true
