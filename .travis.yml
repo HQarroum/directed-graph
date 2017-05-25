@@ -8,5 +8,3 @@ before_install:
 install:
   - bower install
   - npm install
-after_success:
-  - '[ -n "$TRAVIS_TAG" ] && git add dist/ && git commit -m "Add dist/ folder to the tag" && git tag -d $TRAVIS_TAG && git tag $TRAVIS_TAG && git push origin :$TRAVIS_TAG && git push origin $TRAVIS_TAG'
