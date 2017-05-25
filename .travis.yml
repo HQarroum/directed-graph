@@ -13,7 +13,7 @@ deploy:
   api_key:
     secure: jFPQlSBPoIZ3BsaC+1IqiNZSbQxPE5WTNdfJ6fuAlZSdzsTByhSnuPfcTH+8BytrdqnFFTdT6oVEH58SJT+Gg323BV6v/4tS7w1kWj8Nj0NActvwwAcwWdsJjDWx0wh015lAH3Q6Xb9zVRpD3UT+c7k4yTwc+h528AA6Q02OgAmlFduNJxkmbEpOgFFiSpIf1pfTJ4NfNB6nJSEttN4mrYDdSohLPb6UlPl0JT6nfLeJrAk+s1blBMWY3qiiXpbZE0ZIv6ybc1qLYouSnNE2mHOFQEKHjG1PP8bqUBENiJj9ZDTO2rRGewboebbP82bFza5dARVz6QREpWjjTdvdhIbgj6JqF2TfDRiREy+O39EPPCsytlgdpGiMtTvtnwehKtsaNA88s5/zCYuw09PB/PI9bRP8dqQS7mXDQ+rhc3ozjm9CDyfjws2tRA2zBojT8obdtsJWMGRuTkfYaqC7rh90wPM+S/m+Ie/O79IqVx5hp8FjEN9g1Crpi6Gf3lbMQxKL8F4ZtE7P30qDykLriALvaRlchMs2aYPRyi+EsWvkWrewSno4Lg1v7Y41Aqpl0InM1qpqjc+U14koVOqIesuW6rbmgodFU5LqsWpHF3dmx6MvDE2uejcbWYHYCC3F33PGQ0sabwkVTs/yziUMYQsUtajI8fwTcAfjwc/u870=
   file_glob: true
-  file: dist/*
+  file: *.zip
   skip_cleanup: true
   on:
     tags: true

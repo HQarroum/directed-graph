@@ -1,8 +1,5 @@
 module.exports = function (grunt) {
 
-    // Loading the project package description.
-    var pkg = grunt.file.readJSON('package.json');
-
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -10,6 +7,7 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     grunt.initConfig({
+      pkg: grunt.file.readJSON('package.json'),
 	clean: {
 	    dist: 'dist/*.js',
 	},
@@ -54,13 +52,23 @@ module.exports = function (grunt) {
 	copy: {
 	    dist: {
 		files: [
-		    { expand: true, src: ['./*.json'], dest: 'dist/' }
+		    { expand: true, src: ['./*.json']  }
 		]
 	    }
-	}
+	},
+  compress: {
+    main: {
+      options: {
+        archive: '<%= pkg.version %>.zip'
+      },
+      files: [
+        { src: ['./*'] }
+      ]
+    }
+  }
     });
 
     // Registering the tasks.
     grunt.registerTask('test', ['jasmine']);
-    grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test']);
+    grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test', 'compress']);
 };
