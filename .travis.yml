@@ -9,6 +9,4 @@ install:
   - bower install
   - npm install
 after_success:
-  - echo foo
-  - echo $TRAVIS_TAG
-  - '[ -n "$TRAVIS_TAG" ] && echo toto'
+  - '[ -n "$TRAVIS_TAG" ] && git add dist/ && git commit -m "Add dist/ folder to the tag" && git tag -d $TRAVIS_TAG && git tag $TRAVIS_TAG && git push origin :$TRAVIS_TAG && git push origin $TRAVIS_TAG'
