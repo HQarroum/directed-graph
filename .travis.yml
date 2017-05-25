@@ -9,4 +9,4 @@ install:
   - bower install
   - npm install
 after_success:
-  - if [[ -v $TRAVIS_TAG ]] then; echo "toto"; fi
+  - '[ -n "$TRAVIS_TAG" ] && echo toto'
