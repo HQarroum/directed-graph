@@ -7,7 +7,7 @@
 
 An implementation of a simple directed graph.
 
-Current version: **1.0.3**
+Current version: **1.0.4**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 

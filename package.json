@@ -1,6 +1,6 @@
 {
   "name": "digraphe",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An cross-platform implementation of a directed graph.",
   "main": "graph.js",
   "author": "Halim Qarroum <hqm.post@gmail.com>",
