@@ -16,4 +16,4 @@ deploy:
   file: 'dist/*'
   skip_cleanup: true
   on:
-    tags
+    tags: true
