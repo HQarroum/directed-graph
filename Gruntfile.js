@@ -1,8 +1,5 @@
 module.exports = function (grunt) {
 
-    // Loading the project package description.
-    var pkg = grunt.file.readJSON('package.json');
-
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
