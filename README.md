@@ -4,6 +4,7 @@
 
 ## Graph
 [![Build Status](https://travis-ci.org/HQarroum/directed-graph.svg?branch=master)](https://travis-ci.org/HQarroum/directed-graph)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/41ebee98128242dba2c916494f5ce707)](https://www.codacy.com/app/hqm-post/directed-graph?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HQarroum/directed-graph&amp;utm_campaign=Badge_Grade)
 
 An implementation of a simple directed graph.
 
