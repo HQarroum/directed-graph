@@ -1,61 +1,61 @@
-define(['lodash', 'graph'], function (_, Graph) {
+var _ = require('lodash');
+var expect = require('expect');
+var Graph = require('../graph.js');
+
+/**
+ *  DFS test plan.
+ */
+describe('Depth-First search visitor', function () {
+
+    var graph = new Graph();
 
     /**
-     *  DFS test plan.
+     * Building the graph using a predefined path :
+     *
+     *                             Head
+     *                              ||
+     *                            /   \
+     *                           \/   \/
+     *                          foo   bar
+     *                          ||    ||
+     *                           \    /
+     *                           \   /
+     *                            \/
+     *                           baz
      */
-    describe('Depth-First search visitor', function () {
+    beforeEach(function () {
+        graph.addEdge('head', 'foo');
+        graph.addEdge('head', 'bar');
+        graph.addEdge('foo', 'baz');
+        graph.addEdge('bar', 'baz');
+    });
 
-        var graph = new Graph();
+    it('should be able to iterate over the nodes in the graph', function () {
+        var result = ['foo', 'baz', 'bar'];
+        var nodes = [];
 
-        /**
-         * Building the graph using a predefined path :
-         *
-         *                             Head
-         *                              ||
-         *                            /   \
-         *                           \/   \/
-         *                          foo   bar
-         *                          ||    ||
-         *                           \    /
-         *                           \   /
-         *                            \/
-         *                           baz
-         */
-        beforeEach(function () {
-            graph.addEdge('head', 'foo');
-            graph.addEdge('head', 'bar');
-            graph.addEdge('foo', 'baz');
-            graph.addEdge('bar', 'baz');
+        Graph.Visitor.DFS(graph, 'head', function (node) {
+            nodes.push(node.id);
         });
+        expect(nodes.toString()).toEqual(result.toString());
+    });
 
-        it('should be able to iterate over the nodes in the graph', function () {
-            var result = ['foo', 'baz', 'bar'];
-            var nodes = [];
+    it('should throw an error if the head node is not available', function () {
+        graph.clear();
+        expect(function () {
+            Graph.Visitor.DFS(graph, 'head');
+        }).toThrow();
+    });
 
-            Graph.Visitor.DFS(graph, 'head', function (node) {
-                nodes.push(node.id);
-            });
-            expect(nodes.toString()).toEqual(result.toString());
+    it('should not return any node if the head node does not have any adjacents nodes', function () {
+        var nodes = [];
+
+        graph.removeEdge('head', 'foo');
+        graph.removeEdge('head', 'bar');
+        Graph.Visitor.DFS(graph, 'head', function (node) {
+            nodes.push(node.id);
         });
-
-        it('should throw an error if the head node is not available', function () {
-            graph.clear();
-            expect(function () {
-                Graph.Visitor.DFS(graph, 'head');
-            }).toThrow();
-        });
-
-        it('should not return any node if the head node does not have any adjacents nodes', function () {
-            var nodes = [];
-
-            graph.removeEdge('head', 'foo');
-            graph.removeEdge('head', 'bar');
-            Graph.Visitor.DFS(graph, 'head', function (node) {
-                nodes.push(node.id);
-            });
-            expect(nodes.length).toEqual(0);
-        });
-
+        expect(nodes.length).toEqual(0);
     });
 
 });

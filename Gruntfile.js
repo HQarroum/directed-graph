@@ -27,27 +27,11 @@ module.exports = function (grunt) {
 		dest: 'dist/graph.min.js'
 	    }
 	},
-	jasmine: {
-	    dist: {
-		options: {
-		    specs: ['tests/*-spec.js'],
-		    vendor: ['.grunt/grunt-contrib-jasmine/es5-shim.js'],
-		    template: require('grunt-template-jasmine-requirejs'),
-		    templateOptions: {
-			requireConfig: {
-			    buildPath: '../',
-			    paths: {
-				'lodash': 'libs/lodash/dist/lodash.min',
-				'event-emitter': 'libs/eventemitter2/lib/eventemitter2'
-			    }
-			}
-		    },
-		    junit: {
-			path: 'reports/junit/jasmine'
-		    }
-		}
-	    }
-	},
+  mochaTest: {
+    test: {
+      src: ['tests/**/*.js']
+    }
+  },
 	copy: {
 	    dist: {
 		files: [
@@ -58,6 +42,6 @@ module.exports = function (grunt) {
     });
 
     // Registering the tasks.
-    grunt.registerTask('test', ['jasmine']);
+    grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'test']);
 };
