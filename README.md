@@ -4,7 +4,6 @@
 
 ## Graph
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/HQarroum/directed-graph.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/HQarroum/directed-graph.svg?branch=master)](https://travis-ci.org/HQarroum/directed-graph)
 
 An implementation of a simple directed graph.
