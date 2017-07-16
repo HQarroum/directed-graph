@@ -23,9 +23,5 @@
   "dependencies": {
     "eventemitter2": "^4.1.0",
     "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "requirejs": "~2.1.16",
-    "jasmine": "~2.2.1"
   }
 }
