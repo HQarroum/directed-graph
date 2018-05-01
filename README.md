@@ -5,6 +5,7 @@
 ## Graph
 
 [![Build Status](https://travis-ci.org/HQarroum/directed-graph.svg?branch=master)](https://travis-ci.org/HQarroum/directed-graph)
+[![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/directed-graph/badge)](https://www.codefactor.io/repository/github/hqarroum/directed-graph)
 
 An implementation of a simple directed graph.
 
