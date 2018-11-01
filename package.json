@@ -28,7 +28,7 @@
     "grunt-mocha-test": "^0.13.2",
     "load-grunt-tasks": "^3.1.0",
     "mocha": "^4.0.0",
-    "time-grunt": "^1.2.1"
+    "time-grunt": "^2.0.0"
   },
   "dependencies": {
     "lodash": "^4.17.4"
