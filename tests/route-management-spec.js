@@ -28,14 +28,14 @@ describe('Graph routes APIs', function () {
      *
      *                             Head
      *                              ||
-     *                            /   \
-     *                           \/   \/
-     *                          foo   bar
-     *                          ||    ||
-     *                           \    /
-     *                           \   /
-     *                            \/
-     *                           baz
+     *                             /  \
+     *                            \/  \/
+     *                           foo  bar
+     *                           ||   ||
+     *                            \   /
+     *                             \ /
+     *                              |
+     *                             baz
      */
     beforeEach(function () {
         graph.addEdge('head', 'foo', { weight: 1 });
@@ -82,13 +82,13 @@ describe('Graph routes APIs', function () {
     it('should be able to find a route given an array of node identifiers', function () {
         // Searching for the route head->foo->baz
         var route = graph.findRoute(['head', 'foo', 'baz']);
-        expect(route).toNotBe(undefined);
+        expect(route).not.toBe(undefined);
         expect(route.weight).toEqual(3);
         expect(route.path.length).toEqual(3);
 
         // Searching for the route foo->baz
         route = graph.findRoute(['foo', 'baz']);
-        expect(route).toNotBe(undefined);
+        expect(route).not.toBe(undefined);
         expect(route.weight).toEqual(2);
         expect(route.path.length).toEqual(2);
 

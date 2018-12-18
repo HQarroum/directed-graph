@@ -1,13 +1,20 @@
-var _ = require('lodash');
-var expect = require('expect');
-var Graph = require('../graph.js');
+const _      = require('lodash');
+const expect = require('expect');
+const sinon  = require('sinon');
+const Graph  = require('../graph.js');
+
+/**
+ * Test libraries.
+ */
+require('should');
+require('should-sinon');
 
 /**
  *  Node insertion test plan.
  */
 describe('Insertion of nodes in the graph', function () {
 
-    var graph = new Graph();
+    const graph = new Graph();
 
     /**
      * New nodes insertion test.
@@ -37,7 +44,7 @@ describe('Insertion of nodes in the graph', function () {
      * Node addition event triggering test.
      */
     it('should trigger an appropriate event', function (done) {
-        var callback = function (node) {
+        const callback = function (node) {
             expect(node.id).toEqual('boo');
             graph.removeListener('node.added', callback);
             done();
@@ -53,7 +60,7 @@ describe('Insertion of nodes in the graph', function () {
  */
 describe('Insertion of edges in the graph', function () {
 
-    var graph = new Graph();
+    const graph = new Graph();
 
     it('should be successful when adding new edges', function () {
         graph.addEdge('foo', 'bar');
@@ -99,14 +106,14 @@ describe('Insertion of edges in the graph', function () {
     });
 
     it('should not add an edge if it does already exist', function () {
-        for (var i = 0; i < 10; ++i) {
+        for (let i = 0; i < 10; ++i) {
             graph.addEdge('five', 'six');
         }
         expect(graph.edges.length).toEqual(5);
     });
 
     it('should trigger an appropriate event', function (done) {
-        var callback = function (edge) {
+        const callback = (edge) => {
             expect(edge.source.id).toEqual('seven');
             expect(edge.target.id).toEqual('eight');
             graph.removeListener('edge.added', callback);
@@ -123,9 +130,9 @@ describe('Insertion of edges in the graph', function () {
  */
 describe('Removal of nodes in the graph', function () {
 
-    var graph = new Graph();
+    const graph = new Graph();
 
-    beforeEach(function () {
+    beforeEach(() => {
         graph.addNode('foo');
         graph.addNode('bar');
     });
@@ -150,7 +157,7 @@ describe('Removal of nodes in the graph', function () {
     });
 
     it('should trigger an appropriate event', function (done) {
-        var callback = function (id) {
+        const callback = (id) => {
             expect(id).toEqual('foo');
             graph.removeListener('node.removed', callback);
             done();
@@ -165,9 +172,9 @@ describe('Removal of nodes in the graph', function () {
  */
 describe('Removal of edges in the graph', function () {
 
-    var graph = new Graph();
+    const graph = new Graph();
 
-    beforeEach(function () {
+    beforeEach(() => {
         graph.addEdge('foo', 'bar');
         graph.addEdge('bar', 'baz');
     });
@@ -195,7 +202,7 @@ describe('Removal of edges in the graph', function () {
     });
 
     it('should trigger an appropriate event', function (done) {
-        var callback = function (source, target) {
+        const callback = (source, target) => {
             expect(source).toEqual('foo');
             expect(target).toEqual('bar');
             expect(graph.hasEdge(graph.nodes['foo'], graph.nodes['bar'])).toBeFalsy();
@@ -212,9 +219,9 @@ describe('Removal of edges in the graph', function () {
  */
 describe('Graph nodes and edges removal', function () {
 
-    var graph = new Graph();
+    const graph = new Graph();
 
-    beforeEach(function () {
+    beforeEach(() => {
         graph.addEdge('foo', 'bar');
         graph.addEdge('bar', 'baz');
     });
@@ -226,17 +233,14 @@ describe('Graph nodes and edges removal', function () {
     });
 
     it('should trigger appropriate events', function () {
-        var receiver = {
-            onEdgeRemoved: function () {},
-            onNodeRemoved: function () {}
+        const receiver = {
+            onEdgeRemoved: sinon.spy(),
+            onNodeRemoved: sinon.spy()
         };
-
-        var edgeRemovedSpy = expect.spyOn(receiver, 'onEdgeRemoved');
-        var nodeRemovedSpy = expect.spyOn(receiver, 'onNodeRemoved');
         graph.on('edge.removed', receiver.onEdgeRemoved);
         graph.on('node.removed', receiver.onNodeRemoved);
         graph.clear();
-        expect(edgeRemovedSpy.calls.length).toEqual(2);
-        expect(nodeRemovedSpy.calls.length).toEqual(3);
+        receiver.onEdgeRemoved.should.have.callCount(2);
+        receiver.onNodeRemoved.should.have.callCount(3);
     });
 });

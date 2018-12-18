@@ -581,8 +581,8 @@
       }
       this.source = source;
       this.target = target;
-      options = options || {};
-      this.weight = options.weight || 0;
+      this.options = options || {};
+      this.weight = this.options.weight || 0;
   };
 
   /**

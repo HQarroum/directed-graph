@@ -1,6 +1,6 @@
 {
   "name": "digraphe",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An cross-platform implementation of a directed graph.",
   "main": "graph.js",
   "author": "Halim Qarroum <hqm.post@gmail.com>",
@@ -28,6 +28,9 @@
     "grunt-mocha-test": "^0.13.2",
     "load-grunt-tasks": "^3.1.0",
     "mocha": "^4.0.0",
+    "should": "^13.2.3",
+    "should-sinon": "0.0.6",
+    "sinon": "^7.2.2",
     "time-grunt": "^1.2.1"
   },
   "dependencies": {
