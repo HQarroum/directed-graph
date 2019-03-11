@@ -19,7 +19,7 @@
     "directed"
   ],
   "devDependencies": {
-    "expect": "^21.0.0",
+    "expect": "^24.4.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
