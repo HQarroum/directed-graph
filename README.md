@@ -6,6 +6,7 @@
 
 [![Build Status](https://travis-ci.org/HQarroum/directed-graph.svg?branch=master)](https://travis-ci.org/HQarroum/directed-graph)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/directed-graph/badge)](https://www.codefactor.io/repository/github/hqarroum/directed-graph)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Fdirected-graph.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Fdirected-graph?ref=badge_shield)
 
 An implementation of a simple directed graph.
 
@@ -344,3 +345,7 @@ grunt
 # Using NPM
 npm test
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Fdirected-graph.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Fdirected-graph?ref=badge_large)
