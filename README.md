@@ -9,7 +9,7 @@
 
 An implementation of a simple directed graph.
 
-Current version: **1.0.4**
+Current version: **1.0.6**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
@@ -19,12 +19,6 @@ Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
 ```bash
 npm install --save digraphe
-```
-
-##### Using Bower
-
-```bash
-bower install --save digraphe
 ```
 
 ## Usage
